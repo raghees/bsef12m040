@@ -1,0 +1,115 @@
+﻿@model MvcApplication1.Models.Student
+
+
+@{
+    ViewBag.Title = "view";
+    Layout = "~/Views/Shared/_layout3.cshtml";
+}
+<html>
+    <head>
+        <title>Add User</title>
+@*        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <script src="~/Scripts/bootstrap.js"></script>*@
+
+@*        <script type="text/javascript">
+            function validat()
+            {
+                var x = document.getElementById(name);
+                if (document.getElementById("name"))
+                {
+                    alert("empty");
+                }
+            }
+
+        </script>*@
+      
+
+    </head>
+    <body >
+      
+
+     
+                <div class="row">
+         <div class="col-md-3">
+              <div class="list-group">
+
+                  <a href="#"><img src="~/Images/black.png" /> </a>
+                  <br /><br />
+                   <a href="#"><img src="~/Images/white-mob.png" /> </a><br />
+              </div>
+            </div>
+        <div class="col-md-6">
+           
+
+
+            <div id="register" class="animate form">
+                <!--    <form class="form-horizontal" role="form" method="get" action="/Student/Add" autocomplete="on">
+                  <strong> Name: </strong><input type="text" class="form-control navbar-success" required="required" id="name" name="Name" value="@Model.Name">
+                            @* <a href="/Home/add"></a>*@
+          <br />  
+                         <strong>FatherName: </strong><input type="text" class="form-control navbar-success" required="required" id="fname" name="FatherName" value="@Model.FatherName">
+                            @* <a href="/Home/add"></a>*@
+          <br />  
+                   <strong>CNIC:</strong> <input type="text" required="required" class="form-control" id="inputSuccess33" name="CNIC" value="@Model.CNIC"><br />
+                   <strong>PhoneNumber:</strong> <input type="text" class="form-control" id="inputSuccess34" required="required" name="PhoneNumber" value="@Model.PhoneNumber"><br />
+                        <strong>MatricMarks:</strong> <input type="text" class="form-control" id="inputSuccess35" required="required" name="MatricMarks" value="@Model.MatricMarks"><br />
+                        <strong>FscMarks:</strong> <input type="text" class="form-control" id="inputSuccess36" required="required" name="FscMarks" value="@Model.FscMarks"><br />
+                   <strong>Address:</strong> <input type="text" class="form-control" required="required" id="inputSuccess37" name="Address" value="@Model.Address"><br />
+                   
+                         
+                 <strong>DateofBirth: </strong>
+                           <div class="container">
+                                   <div class="row">
+                                     <div class='col-sm-6'>
+                                       <div class="form-group">
+                                         <div class='input-group date' id='datetimepicker1' ">
+                                           <input type='text' class="form-control" name="DateofBirth" value="@Model.DateofBirth" required="required" />
+                                           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                           </span>
+                                        </div>
+                                     </div>
+                                 </div>
+              
+                     </div>
+                    </div>
+             <br /><br />
+                  
+                
+                    </form>-->
+                 @using(Html.BeginForm("Add","Student" , FormMethod.Get))
+                {
+                      @Html.Label("Name")
+                      @Html.TextBoxFor(x=>x.Name)<br>
+                  
+                     @Html.Label("FatherName")
+                     @Html.TextBoxFor(y=>y.FatherName)<br>
+                     @Html.Label("CNIC")
+                     @Html.TextBoxFor(z=>z.CNIC)<br>
+                     @Html.Label("PhoneNumber")
+                     @Html.TextBoxFor(a=>a.PhoneNumber)<br>
+                     @Html.Label("MatricMarks")
+                     @Html.TextBoxFor(b=>b.MatricMarks)<br>
+                     @Html.Label("FscMarks")
+                     @Html.TextBoxFor(c=>c.FscMarks)<br>
+                     @Html.Label("Address")
+                     @Html.TextBoxFor(d=>d.Address)<br>
+                     @Html.Label("DateofBirth")
+                     @Html.TextBoxFor(e=>e.DateofBirth)<br>
+                 }
+
+                </div>
+             </div>
+          <div class="col-md-3" >
+              <div class="list-group">
+
+                  <a href="#"><img src="~/Images/img-mid.png" /> </a>
+                  <br /><br />
+                   <a href="#"><img src="~/Images/b.png" /> </a><br /><br />
+              </div>
+            </div>
+        </div>
+
+        
+
+        </body>
+    </html>

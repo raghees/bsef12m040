@@ -1,0 +1,174 @@
+﻿@model MvcApplication1.Models.Student
+@{
+    ViewBag.Title = "register";
+    Layout = "~/Views/Shared/_layout3.cshtml";
+}
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<html>
+    <head>
+        <title>Add User</title>
+@*        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <script src="~/Scripts/bootstrap.js"></script>*@
+
+@*        <script type="text/javascript">
+            function validat()
+            {
+                var x = document.getElementById(name);
+                if (document.getElementById("name"))
+                {
+                    alert("empty");
+                }
+            }
+
+        </script>*@
+        
+        @Scripts.Render("~/bundles/jquery")
+        <script>
+
+            $(document).ready(function () {
+
+                $('#checking').hide();
+
+                $('#chk').click(function () {
+
+                    var s = $('#name').val();
+                    $('#checking').show();
+                    $.getJSON("/Student/Checkuser?name=" + s, function (data) {
+
+                        $('#checking').hide();
+                        if (data==true) {
+                            $('#res').text("User Exists");
+
+                        }
+                        else {
+                            $('#res').text("User not Exists");
+                        }
+
+                    });
+
+
+
+                });
+
+            });
+
+        </script>
+
+        
+
+    </head>
+    <body >
+      
+
+     
+                <!--<div class="row">
+         <div class="col-md-3">
+              <div class="list-group">
+
+                  <a href="#"><img src="~/Images/black.png" /> </a>
+                  <br /><br />
+                   <a href="#"><img src="~/Images/white-mob.png" /> </a><br />
+              </div>
+            </div>
+        <div class="col-md-6">-->
+           
+
+
+                         <div id="checking">Checking...</div>
+                         <div id="res"></div>
+            <div id="register" class="animate form">
+                <div class="row-md-4">
+                    @using(Html.BeginForm("register","Student",FormMethod.Post))
+                    {
+                     @Html.AntiForgeryToken()
+                     @Html.ValidationSummary(true) 
+                     @Html.Label("Name")
+                     @Html.TextBoxFor(x=>x.Name)<br>
+                     @Html.ValidationMessageFor(J=>J.Name)
+                     <button type="button" class="btn btn-danger pull-right" id="chk">Check</button> <br /><br />
+                     @Html.Label("FatherName")
+                     @Html.TextBoxFor(y=>y.FatherName)
+                     @Html.ValidationMessageFor(J=>J.FatherName)<br>
+                     @Html.Label("CNIC")
+                     @Html.TextBoxFor(z=>z.CNIC)
+                     @Html.ValidationMessageFor(J=>J.CNIC)<br>
+                     @Html.Label("PhoneNumber")
+                     @Html.TextBoxFor(a=>a.PhoneNumber)
+                     @Html.ValidationMessageFor(J=>J.PhoneNumber)<br>
+                     @Html.Label("MatricMarks")
+                     @Html.TextBoxFor(b=>b.MatricMarks)
+                     @Html.ValidationMessageFor(J=>J.MatricMarks)<br>
+                     @Html.Label("FscMarks")
+                     @Html.TextBoxFor(c=>c.FscMarks)
+                     @Html.ValidationMessageFor(J=>J.FscMarks)<br>
+                     @Html.Label("Address")
+                     @Html.TextBoxFor(d=>d.Address)
+                     @Html.ValidationMessageFor(J=>J.Address)<br>
+                     @Html.Label("DateofBirth")
+                     @Html.TextBoxFor(e=>e.DateofBirth)
+                     @Html.ValidationMessageFor(J=>J.DateofBirth)<br>
+                     
+                         <input type="submit" class="btn btn-primary pull-right" value="Submit">
+                   <!--<form class="form-horizontal" role="form" method="get" action="/Student/Add" autocomplete="on">
+               
+
+                  <strong> Name: </strong><input type="text" class="form-control navbar-success" required="required" id="name" name="Name">
+                            @* <a href="/Home/add"></a>*@
+          <br />  
+                        <button type="button" class="btn btn-danger pull-right" id="chk">Check</button> <br /><br />
+                         <strong>FatherName: </strong><input type="text" class="form-control navbar-success" required="required" id="fname" name="FatherName">
+                            @* <a href="/Home/add"></a>*@
+          <br />  
+                   <strong>CNIC:</strong> <input type="text" required="required" class="form-control" id="inputSuccess33" name="CNIC"><br />
+                   <strong>PhoneNumber:</strong> <input type="text" class="form-control" id="inputSuccess34" required="required" name="PhoneNumber"><br />
+                        <strong>MatricMarks:</strong> <input type="text" class="form-control" id="inputSuccess35" required="required" name="MatricMarks"><br />
+                        <strong>FscMarks:</strong> <input type="text" class="form-control" id="inputSuccess36" required="required" name="FscMarks"><br />
+                   <strong>Address:</strong> <input type="text" class="form-control" required="required" id="inputSuccess37" name="Address"><br />
+                   
+                         
+                 <strong>DateofBirth: </strong>
+                           <div class="container">
+                                   <div class="row">
+                                     <div class='col-sm-6'>
+                                       <div class="form-group">
+                                         <div class='input-group date' id='datetimepicker1' ">
+                                           <input type='text' class="form-control" name="DateofBirth" required="required" />
+                                           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                           </span>
+                                        </div>
+                                     </div>
+                                 </div>
+              
+                     </div>
+                    </div>
+             <br /><br />
+                       
+                     <!--  <input type="file" name="file" id="f1" required />-->
+                          
+                  @* <strong>Date: </strong><input type="text" class="form-control" id="inputSuccess35" name="Date"><br />*@
+                 @*  <input type="submit" class="btn btn-primary pull-right" value="Submit">*@
+                   
+                    }
+                
+                  <!--  </div>
+                </div>
+             </div>
+          <div class="col-md-3" >
+              <div class="list-group">
+
+                  <a href="#"><img src="~/Images/img-mid.png" /> </a>
+                  <br /><br />
+                   <a href="#"><img src="~/Images/b.png" /> </a><br /><br />
+              </div>
+            </div>
+        </div>-->
+
+        <br/><br/><br/><br/><br/><br/><br/><br/>
+
+        </body>
+    </html>

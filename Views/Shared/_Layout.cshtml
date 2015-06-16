@@ -1,0 +1,72 @@
+﻿<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Entry TEST</title>
+  
+      <link href="~/bootstrap.css" rel="stylesheet" />
+      <script src="~/bootstrap.js"></script>
+</head>
+<body>
+  
+      <nav class="navbar navbar-inverse" role="navigation">
+
+       <div class="navbar-header">
+           <a href="#" > <img src="~/Images/mono.png"/></a>
+        <a class="navbar-brand" href="#" >Pucit Entry Test Registration</a>
+               
+        </div>
+            <div>
+
+                <ul class="nav navbar-nav">
+                    <li >@Html.ActionLink("Home","Index","Student")</li>
+                    
+                    <li >@Html.ActionLink("Contact US","ContactUs","Student")</li>
+                          
+                           
+                </ul>
+                       <form class="navbar-form navbar-left pull-right" role="search">
+                             <a href="/Admin/signin"><button type="button" class="btn btn-warning "> Sign In</button></a>
+                             <a href="/Student/register"><button type="button" class="btn btn-info "> Register</button></a>
+                             <a href="/Student/merit"><button type="button" class="btn btn-info "> Recent Merits</button></a>
+                   
+                            <div class="form-group">
+                                <input type="text" placeholder="search"  class="form-control"/>
+                                <a href="/Student/search"> <button type="submit" class="btn btn-success">Submit</button></a>
+                            </div>
+                           
+                           
+                          </form>
+                         
+            </div>
+      </nav>
+
+     @RenderBody()
+
+  
+    
+                <nav class="navbar navbar-default" role="navigation">
+
+       <div class="navbar-header">
+           <a href="#" > <img src="~/Images/mono.png"/></a>
+        <label>Copyright © 2014 Allwebco Design Corporation All rights reserved.</label>
+               <a href="/Home/login"> Term of Use</a> 
+           <label> || </label>
+               <a href="/Home/add">Privacy Policy</a>
+    </div>
+            <div>
+
+               
+                       <form class="navbar-form navbar-left pull-right" role="search">
+                             
+                            <a href="/https://www.facebook.com/Sehar.naqvi.908?ref=tn_tnmn"> Contact Us</a>
+                   
+                          </form>
+                         
+            </div>
+      </nav>
+
+
+</body>
+</html>
